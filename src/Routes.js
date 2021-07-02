@@ -89,13 +89,9 @@ export const Routes = () => {
         <CatalogRoute path={paths.order} component={OrderDetail} />
         <CatalogRoute path={paths.orders} component={Orders} />
         <Route path={errorPaths} component={CommonApiError} />
-        <Route
-          render={() =>
-            some(paths, (p) => p === pathname) ? null : (
-              <Redirect to={paths.portfolios} />
-            )
-          }
-        />
+        <Route>
+          <Redirect to={paths.portfolios} />
+        </Route>
       </Switch>
       {/*
        * We require the empty DIV around the dialog routes to avoid testing issues
